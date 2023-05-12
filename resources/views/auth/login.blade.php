@@ -21,10 +21,8 @@
                         <div class="card mb-0">
                             <div class="card-body">
                                 <a href="" class="text-nowrap logo-img text-center d-block py-3 w-100">
-                                    <img src="{{ asset('assets/images/logos/dark-logo.svg') }}" width="180"
-                                        alt="">
+                                        <h3>Login</h3>
                                 </a>
-                                <p class="text-center">Your Social Campaigns</p>
                                 @include('_message')
                                 <form action="{{ url('login')}}" method="post">
                                     {{ csrf_field() }}
