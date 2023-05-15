@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Models\User;
+use App\Mail\ForgotPasswordMail;
+use Mail;
+use Str;
 
 class AuthController extends Controller
 {
@@ -41,7 +45,6 @@ class AuthController extends Controller
             return redirect()->back()->with('error', 'Please enter current email and password');
         }
     }
-
     public function logout()
     {
         Auth::logout();
