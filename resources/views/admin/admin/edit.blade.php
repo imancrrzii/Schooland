@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-12">
-                        <h1>Add Administrator</h1>
+                        <h1>Edit Administrator</h1>
                     </div>
                 </div>
         </section>

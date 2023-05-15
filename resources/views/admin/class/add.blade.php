@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-12">
-                        <h1>Add Administrator</h1>
+                        <h1>Add Class</h1>
                     </div>
                 </div>
             </div>
@@ -21,20 +21,16 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Name</label>
-                                        <input type="text" name="name" value="{{ old('name') }}"
-                                            class="form-control" id="exampleInputEmail1" placeholder="Enter Name">
+                                        <label for="exampleInputEmail1">Class Name</label>
+                                        <input type="text" name="name" class="form-control" id="exampleInputEmail1"
+                                            placeholder="Enter Class Name">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Email</label>
-                                        <input type="email" name="email" value="{{ old('email') }}"
-                                            class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                        <div style="color:red">{{ $errors->first('email') }}</div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Password</label>
-                                        <input type="password" name="password" value="{{ old('password') }}"
-                                            class="form-control" id="exampleInputPassword1" placeholder="Enter Password">
+                                        <label for="exampleInputEmail1">Status</label>
+                                        <select class="form-control" name="status">
+                                            <option value="0">Active</option>
+                                            <option value="1">Inactive</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="card-footer">

@@ -8,15 +8,15 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
-    public function list()
+    public function index()
     {
         $data['getRecord'] = User::getAdmin();
-        $data['header_title'] = "Admin List";
-        return view('admin.admin.list', $data);
+        $data['title'] = "Administrator";
+        return view('admin.admin.index', $data);
     }
     public function add()
     {
-        $data['header_title'] = "Add Admin";
+        $data['title'] = "Add Admin";
         return view('admin.admin.add', $data);
     }
     public function insert(Request $request)
@@ -32,13 +32,13 @@ class AdminController extends Controller
         $user->user_type = 1;
         $user->save();
 
-        return redirect('admin/admin/list')->with('success', 'Admin Successfully Created');
+        return redirect('admin/admin/index')->with('success', 'Admin Successfully Created');
     }
     public function edit($id)
     {
         $data['getRecord'] = User::getSingle($id);
         if (!empty($data['getRecord'])) {
-            $data['header_title'] = "Edit Admin";
+            $data['title'] = "Edit Admin";
             return view('admin.admin.edit', $data);
         } else {
             abort(404);
@@ -59,7 +59,7 @@ class AdminController extends Controller
         }
         $user->save();
 
-        return redirect('admin/admin/list')->with('success', 'Admin Successfully Updated');
+        return redirect('admin/admin/index')->with('success', 'Admin Successfully Updated');
     }
     public function delete($id)
     {
@@ -67,6 +67,6 @@ class AdminController extends Controller
         $user->is_delete = 1;
         $user->save();
 
-        return redirect('admin/admin/list')->with('success', 'Admin Successfully Deleted');
+        return redirect('admin/admin/index')->with('success', 'Admin Successfully Deleted');
     }
 }
