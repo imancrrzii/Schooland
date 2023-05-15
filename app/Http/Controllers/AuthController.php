@@ -27,7 +27,6 @@ class AuthController extends Controller
         }
         return view('auth.login');
     }
-
     public function AuthLogin(Request $request)
     {
         $remember = !empty($request->remember) ? true : false;

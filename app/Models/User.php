@@ -44,15 +44,14 @@ class User extends Authenticatable
     ];
     static public function getAdmin()
     {
-
         $return = self::select('users.*')
             ->where('user_type', '=', 1)
             ->where('is_delete', '=', 0);
         if (!empty(Request::get('name'))) {
-            $return = $return->where('name', 'like', '%' .Request::get('name') . '%');
+            $return = $return->where('name', 'like', '%' . Request::get('name') . '%');
         }
         if (!empty(Request::get('email'))) {
-            $return = $return->where('email', 'like', '%' .Request::get('email') . '%');
+            $return = $return->where('email', 'like', '%' . Request::get('email') . '%');
         }
         $return = $return->orderBy('id', 'desc')
             ->paginate(8);
@@ -60,7 +59,6 @@ class User extends Authenticatable
     }
     static public function getSingle($id)
     {
-
         return self::find($id);
     }
 }

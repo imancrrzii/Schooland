@@ -14,13 +14,11 @@ class AdminController extends Controller
         $data['header_title'] = "Admin List";
         return view('admin.admin.list', $data);
     }
-
     public function add()
     {
         $data['header_title'] = "Add Admin";
         return view('admin.admin.add', $data);
     }
-
     public function insert(Request $request)
     {
         request()->validate([
@@ -36,7 +34,6 @@ class AdminController extends Controller
 
         return redirect('admin/admin/list')->with('success', 'Admin Successfully Created');
     }
-
     public function edit($id)
     {
         $data['getRecord'] = User::getSingle($id);
@@ -47,12 +44,11 @@ class AdminController extends Controller
             abort(404);
         }
     }
-
     public function update($id, Request $request)
     {
 
         request()->validate([
-            'email' => 'required|email|unique:users,email,'.$id
+            'email' => 'required|email|unique:users,email,' . $id
         ]);
 
         $user = User::getSingle($id);
@@ -65,14 +61,12 @@ class AdminController extends Controller
 
         return redirect('admin/admin/list')->with('success', 'Admin Successfully Updated');
     }
-
-    public function delete($id){
+    public function delete($id)
+    {
         $user = User::getSingle($id);
         $user->is_delete = 1;
         $user->save();
 
         return redirect('admin/admin/list')->with('success', 'Admin Successfully Deleted');
-
-
     }
 }

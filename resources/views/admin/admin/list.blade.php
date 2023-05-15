@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -12,18 +11,16 @@
                     <div class="col-sm-6" style="text-align: right";>
                         <a href="{{ url('admin/admin/add') }}" class="btn btn-primary">Add Admin</a>
                     </div>
-                </div><!-- /.container-fluid -->
+                </div>
+            </div>
         </section>
 
-        <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
                         <div class="row">
-                            <!-- left column -->
                             <div class="col-md-12">
-                                <!-- general form elements -->
                                 <div class="card">
                                     <form action="" method="get">
                                         <div class="card-body">
@@ -48,12 +45,9 @@
                                                         style="margin-top:23px">Reset</a>
                                                 </div>
                                             </div>
-                                            <!-- /.card-body -->
                                     </form>
                                 </div>
-                                <!-- /.card -->
                             </div>
-                            <!--/.col (right) -->
                         </div>
                     </div>
 
@@ -93,19 +87,10 @@
                             <div style="padding:10px; float: right">
                                 {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
                             </div>
-
-
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
-    </div>
-    <!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
+        </section>
     </div>
 @endsection
