@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Auth;
 use App\Models\ClassModel;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClassController extends Controller
 {
@@ -55,6 +55,4 @@ class ClassController extends Controller
 
         return redirect()->back()->with('admin/class/index')->with('success', 'Class Successfully Deleted');
     }
-
-    
 }

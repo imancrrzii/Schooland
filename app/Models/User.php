@@ -3,11 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
-use Request;
 
 class User extends Authenticatable
 {
@@ -53,7 +53,7 @@ class User extends Authenticatable
         if (!empty(Request::get('email'))) {
             $return = $return->where('email', 'like', '%' . Request::get('email') . '%');
         }
-        $return = $return->orderBy('id', 'desc')
+        $return = $return->orderBy('id')
             ->paginate(8);
         return $return;
     }

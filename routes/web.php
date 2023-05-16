@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SubjectController;
 
 Route::get('/', [AuthController::class, 'login']);
 Route::post('login', [AuthController::class, 'AuthLogin']);
@@ -45,6 +46,18 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/class/edit/{id}', [ClassController::class, 'update']);
     //delete
     Route::get('admin/class/delete/{id}', [ClassController::class, 'delete']);
+
+        //subject url
+    //read
+    Route::get('admin/subject/index', [SubjectController::class, 'index']);
+    //create
+    Route::get('admin/subject/add', [SubjectController::class, 'add']);
+    Route::post('admin/subject/add', [SubjectController::class, 'insert']);
+    //update
+    Route::get('admin/subject/edit/{id}', [SubjectController::class, 'edit']);
+    Route::post('admin/subject/edit/{id}', [SubjectController::class, 'update']);
+    //delete
+    Route::get('admin/subject/delete/{id}', [SubjectController::class, 'delete']);
 
 });
 

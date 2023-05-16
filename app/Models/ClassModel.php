@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 use Illuminate\Database\Eloquent\Model;
-use Request;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ClassModel extends Model
 {
@@ -24,8 +25,8 @@ class ClassModel extends Model
             $return = $return->where('class.name', 'like', '%' . Request::get('name') . '%');
         }
         $return = $return->where('class.is_delete', '=', 0)
-            ->orderBy('class.id', 'desc')
-            ->paginate(1);
+            ->orderBy('class.id')
+            ->paginate(3);
         return $return;
     }
 }

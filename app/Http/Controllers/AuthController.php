@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 
-use Illuminate\Http\Request;
-use Auth;
-use App\Models\User;
-use App\Mail\ForgotPasswordMail;
-use Mail;
 use Str;
+use Mail;
+use App\Models\User;
+use Illuminate\Http\Request;
+use App\Mail\ForgotPasswordMail;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {

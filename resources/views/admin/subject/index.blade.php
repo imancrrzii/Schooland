@@ -6,10 +6,10 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Class</h1>
+                        <h1>Subject</h1>
                     </div>
                     <div class="col-sm-6" style="text-align: right";>
-                        <a href="{{ url('admin/class/add') }}" class="btn btn-primary">Add Class</a>
+                        <a href="{{ url('admin/subject/add') }}" class="btn btn-primary">Add Subject</a>
                     </div>
                 </div>
             </div>
@@ -32,9 +32,17 @@
                                                         placeholder="Enter Name">
                                                 </div>
                                                 <div class="form-group col-md-3">
+                                                    <label for="exampleInputEmail1">Subject Type</label>
+                                                    <select class="form-control" name="type">
+                                                        <option {{ (Request::get('type') == 'Theory') ?'selected' : '' }} value="">Select Type</option>
+                                                        <option value="Theory">Theory</option>
+                                                        <option {{ (Request::get('type') == 'Practical') ?'selected' : '' }}value="Practical">Practical</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-3">
                                                     <button class="btn btn-primary" type="submit"
                                                         style="margin-top:23px">Search</button>
-                                                    <a href="{{ url('admin/class/index') }}" class="btn btn-success"
+                                                    <a href="{{ url('admin/subject/index') }}" class="btn btn-success"
                                                         style="margin-top:23px">Reset</a>
                                                 </div>
                                             </div>
@@ -47,7 +55,7 @@
                     @include('_message')
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Data Class</h3>
+                            <h3 class="card-title">Data Subject</h3>
                         </div>
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
@@ -55,6 +63,7 @@
                                     <tr class="text-center">
                                         <th>#</th>
                                         <th>Name</th>
+                                        <th>Type</th>
                                         <th>Status</th>
                                         <th>Created By</th>
                                         <th>Created Date</th>
@@ -66,6 +75,7 @@
                                         <tr class="text-center">
                                             <td>{{ $value->id }}</td>
                                             <td>{{ $value->name }}</td>
+                                            <td>{{ $value->type }}</td>
                                             <td>
                                                 @if ($value->status == 0)
                                                     Active
@@ -76,9 +86,9 @@
                                             <td>{{ $value->created_by_name }}</td>
                                             <td>{{ date('d-m-Y H:i:A', strtotime($value->created_at)) }}</td>
                                             <td>
-                                                <a href="{{ url('admin/class/edit/' . $value->id) }}"
+                                                <a href="{{ url('admin/subject/edit/' . $value->id) }}"
                                                     class="btn btn-warning"><i class="fas fa-pen"></i></a>
-                                                <a href="{{ url('admin/class/delete/' . $value->id) }}"
+                                                <a href="{{ url('admin/subject/delete/' . $value->id) }}"
                                                     class="btn btn-danger"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
