@@ -4,8 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClassController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ClassSubjectController;
 
 Route::get('/', [AuthController::class, 'login']);
 Route::post('login', [AuthController::class, 'AuthLogin']);
@@ -47,7 +48,7 @@ Route::group(['middleware' => 'admin'], function () {
     //delete
     Route::get('admin/class/delete/{id}', [ClassController::class, 'delete']);
 
-        //subject url
+    //subject url
     //read
     Route::get('admin/subject/index', [SubjectController::class, 'index']);
     //create
@@ -58,6 +59,18 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/subject/edit/{id}', [SubjectController::class, 'update']);
     //delete
     Route::get('admin/subject/delete/{id}', [SubjectController::class, 'delete']);
+
+    //assign_subject url
+    //read
+    Route::get('admin/assign_subject/index', [ClassSubjectController::class, 'index']);
+    //create
+    Route::get('admin/assign_subject/add', [ClassSubjectController::class, 'add']);
+    Route::post('admin/assign_subject/add', [ClassSubjectController::class, 'insert']);
+    //update
+    Route::get('admin/assign_subject/edit/{id}', [ClassSubjectController::class, 'edit']);
+    Route::post('admin/assign_subject/edit/{id}', [ClassSubjectController::class, 'update']);
+    //delete
+    Route::get('admin/assign_subject/delete/{id}', [ClassSubjectController::class, 'delete']);
 
 });
 

@@ -18,7 +18,7 @@ class SubjectModel extends Model
     }
     static public function getRecord()
     {
-        $return = SubjectModel::select('subject.*', 'users.name as created_by_name')
+        $return = self::select('subject.*', 'users.name as created_by_name')
             ->join('users', 'users.id', 'subject.created_by');
         if (!empty(Request::get('name'))) {
             $return = $return->where('subject.name', 'like', '%' . Request::get('name') . '%');
@@ -29,6 +29,16 @@ class SubjectModel extends Model
         $return = $return->where('subject.is_delete', '=', 0)
             ->orderBy('subject.id')
             ->paginate(3);
+        return $return;
+    }
+    static public function getSubject()
+    {
+        $return = SubjectModel::select('subject.*')
+            ->join('users', 'users.id', 'subject.created_by')
+            ->where('subject.is_delete', '=', 0)
+            ->where('subject.status', '=', 0)
+            ->orderBy('subject.name')
+            ->get();
         return $return;
     }
 }
