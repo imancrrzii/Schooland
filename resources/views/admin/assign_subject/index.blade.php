@@ -6,10 +6,10 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Assign Subject</h1>
+                        <h1>Class</h1>
                     </div>
                     <div class="col-sm-6" style="text-align: right";>
-                        <a href="{{ url('admin/assign_subject/add') }}" class="btn btn-primary">Add Assign Subject</a>
+                        <a href="{{ url('admin/assign_subject/add') }}" class="btn btn-primary">Add Assign Class</a>
                     </div>
                 </div>
             </div>
@@ -27,20 +27,22 @@
                                             <div class="row">
                                                 <div class="form-group col-md-3">
                                                     <label for="exampleInputEmail1">Class Name</label>
-                                                    <input type="text" name="class_name" value="{{ Request::get('class_name') }}"
-                                                        class="form-control" id="exampleInputEmail1"
-                                                        placeholder="Enter Name">
+                                                    <input type="text" name="class_name"
+                                                        value="{{ Request::get('class_name') }}" class="form-control"
+                                                        id="exampleInputEmail1" placeholder="Enter Name">
                                                 </div>
+
                                                 <div class="form-group col-md-3">
                                                     <label for="exampleInputEmail1">Subject Name</label>
-                                                    <input type="text" name="subject_name" value="{{ Request::get('subject_name') }}"
-                                                        class="form-control" id="exampleInputEmail1"
-                                                        placeholder="Enter Name">
+                                                    <input type="text" name="subject_name"
+                                                        value="{{ Request::get('subject_name') }}" class="form-control"
+                                                        id="exampleInputEmail1" placeholder="Enter Name">
                                                 </div>
+
                                                 <div class="form-group col-md-3">
                                                     <button class="btn btn-primary" type="submit"
                                                         style="margin-top:23px">Search</button>
-                                                    <a href="{{ url('admin/assign_subject/index') }}" class="btn btn-success"
+                                                    <a href="{{ url('admin/class/index') }}" class="btn btn-success"
                                                         style="margin-top:23px">Reset</a>
                                                 </div>
                                             </div>
@@ -86,6 +88,8 @@
                                             <td>
                                                 <a href="{{ url('admin/assign_subject/edit/' . $value->id) }}"
                                                     class="btn btn-warning"><i class="fas fa-pen"></i></a>
+                                                <a href="{{ url('admin/assign_subject/edit_single/' . $value->id) }}"
+                                                    class="btn btn-outline btn-warning"><i class="fas fa-pen"></i></a>
                                                 <a href="{{ url('admin/assign_subject/delete/' . $value->id) }}"
                                                     class="btn btn-danger"><i class="fas fa-trash"></i></a>
                                             </td>
