@@ -25,21 +25,25 @@
                                             <label>First Name<span style="color:red">*</span></label>
                                             <input type="text" name="name" class="form-control"
                                                 value="{{ old('name') }}" placeholder="First Name">
+                                                <div style="color:red">{{ $errors->first('name') }}</div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Last Name<span style="color:red">*</span></label>
                                             <input type="text" name="last_name" class="form-control"
                                                 value="{{ old('last_name') }}" placeholder="Last Name">
+                                                <div style="color:red">{{ $errors->first('last_name') }}</div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Admission Number<span style="color:red">*</span></label>
                                             <input type="text" name="admission_number" class="form-control"
                                                 value="{{ old('admission_number') }}" placeholder="Admission Number">
+                                                <div style="color:red">{{ $errors->first('admission_number') }}</div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Roll Number<span style="color:red">*</span></label>
                                             <input type="text" name="roll_number" class="form-control"
                                                 value="{{ old('roll_number') }}" placeholder="Roll Number">
+                                                <div style="color:red">{{ $errors->first('roll_number') }}</div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Class <span style="color:red">*</span></label>
@@ -47,70 +51,82 @@
                                                 required>
                                                 <option value="">Select Class</option>
                                                 @foreach ($getClass as $value)
-                                                    <option value="{{ $value->id }}">{{ $value->name }}</option>
+                                                    <option {{ (old('class_id') == $value->id) ? 'selected' : '' }} value="{{ $value->id }}">{{ $value->name }}</option>
                                                 @endforeach
                                             </select>
+                                            <div style="color:red">{{ $errors->first('class_id') }}</div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Gender <span style="color:red">*</span></label>
-                                            <select class="form-control" name="gender" value="{{ old('gender') }}"
+                                            <select class="form-control" name="gender"
                                                 required>
                                                 <option value="">Select Gender</option>
-                                                <option value="Male">Male</option>
-                                                <option value="Female">Female</option>
+                                                <option {{ (old('gender') == 'Male') ? 'selected' : '' }} value="Male">Male</option>
+                                                <option {{ (old('gender') == 'Demale') ? 'selected' : '' }} value="Female">Female</option>
                                             </select>
+                                            <div style="color:red">{{ $errors->first('gender') }}</div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Date of Birth<span style="color:red">*</span></label>
                                             <input type="date" name="date_of_birth" class="form-control"
                                                 value="{{ old('date_of_birth') }}" placeholder="Date of Birth">
+                                                <div style="color:red">{{ $errors->first('date_of_birth') }}</div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Caste<span style="color:red">*</span></label>
                                             <input type="text" name="caste" class="form-control"
                                                 value="{{ old('caste') }}" placeholder="Caste">
+                                                <div style="color:red">{{ $errors->first('caste') }}</div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Religion<span style="color:red">*</span></label>
                                             <input type="text" name="religion" class="form-control"
                                                 value="{{ old('religion') }}" placeholder="Religion">
+                                                <div style="color:red">{{ $errors->first('religion') }}</div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Mobile Number<span style="color:red">*</span></label>
                                             <input type="text" name="mobile_number" class="form-control"
                                                 value="{{ old('mobile_number') }}" placeholder="Mobile Number">
+                                                <div style="color:red">{{ $errors->first('mobile_number') }}</div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Admission Date<span style="color:red">*</span></label>
                                             <input type="date" name="admission_date" class="form-control"
                                                 value="{{ old('admission_date') }}" placeholder="Admission Date">
+                                                <div style="color:red">{{ $errors->first('admission_date') }}</div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Profile Picture<span style="color:red">*</span></label>
                                             <input type="file" name="profile_pic" class="form-control">
+                                            <div style="color:red">{{ $errors->first('profile_pic') }}</div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Blood Group<span style="color:red">*</span></label>
                                             <input type="text" name="blood_group" class="form-control"
                                                 value="{{ old('blood_group') }}" placeholder="Blood Group">
+                                                <div style="color:red">{{ $errors->first('blood_group') }}</div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Height<span style="color:red">*</span></label>
                                             <input type="text" name="height" class="form-control"
                                                 value="{{ old('height') }}" placeholder="Height">
+                                                <div style="color:red">{{ $errors->first('height') }}</div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Weight<span style="color:red">*</span></label>
                                             <input type="text" name="weight" class="form-control"
                                                 value="{{ old('weight') }}" placeholder="Weight">
+                                                <div style="color:red">{{ $errors->first('weight') }}</div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Status<span style="color:red">*</span></label>
                                             <select class="form-control" name="status" required>
                                                 <option value="">Select Status</option>
-                                                <option value="0">Active</option>
-                                                <option value="1">Inactive</option>
+                                                <option {{ (old('status') == 0) ? 'selected' : '' }} value="0">Active</option>
+                                                <option {{ (old('status') == 1) ? 'selected' : '' }} value="1">Inactive</option>
                                             </select>
+                                            <div style="color:red">{{ $errors->first('status') }}</div>
                                         </div>
                                     </div>
                                     <hr />
@@ -118,7 +134,8 @@
                                         <label for="exampleInputEmail1">Email <span style="color:red">*</span></label>
                                         <input type="email" name="email" value="{{ old('email') }}"
                                             class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                        <div style="color:red">{{ $errors->first('email') }}</div>
+                                        
+                                            
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Password <span
