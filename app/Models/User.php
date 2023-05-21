@@ -71,4 +71,13 @@ class User extends Authenticatable
     {
         return self::find($id);
     }
+
+    public function getProfile()
+    {
+        if (!empty($this->profile_pic) && file_exists('upload/profile_student/'.$this->profile_pic)) {
+            return url('upload/profile_student/'.$this->profile_pic);
+        } else {
+            return "";
+        }
+    }
 }
