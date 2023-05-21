@@ -47,6 +47,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/student/edit/{id}', [StudentController::class, 'edit']);
     Route::post('admin/student/edit/{id}', [StudentController::class, 'update']);
 
+    Route::get('admin/student/delete/{id}', [StudentController::class, 'delete']);
+
 
     //class url
     //read
